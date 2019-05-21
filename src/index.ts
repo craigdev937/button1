@@ -11,7 +11,8 @@ const main = async () => {
     app.set("views", path.join(__dirname, "../src/views"));
     app.engine(".hbs", hbs({ defaultLayout: "main", extname: ".hbs" }));
 
-    app.use(express.static(path.join(__dirname, "../src/public")));
+    // app.use(express.static(path.join(__dirname, "../src/public")));
+    app.use(express.static(`${__dirname}/public`));
     app.use((bodyParser.urlencoded({ extended: false })));
     await app.use(bodyParser.json());
     await app.use("/", broute);
